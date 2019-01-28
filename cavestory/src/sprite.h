@@ -1,6 +1,11 @@
 #ifndef _SPRITE_
 #define _SPRITE_
 
+#include <SDL2/SDL.h>
+#include <string>
+
+class Graphics;
+
 class Sprite {
   public:
     Sprite();
@@ -11,7 +16,7 @@ class Sprite {
     void draw(Graphics &graphics, int x, int y);
   private:
     SDL_Rect _sourceRect;
-    SDL_Texture* spriteSheet;
+    SDL_Texture* _spriteSheet;
 
     float _x, _y;
 };
