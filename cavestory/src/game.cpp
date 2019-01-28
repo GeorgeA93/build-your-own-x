@@ -23,6 +23,8 @@ void Game::gameLoop() {
   Input input;
   SDL_Event event;
 
+  _player = Sprite(graphics, "assets/sprites/MyChar.png", 0, 0, 16, 16, 100, 100);
+
   int lastUpdateTime = SDL_GetTicks();
 
   while (true) {
@@ -48,11 +50,17 @@ void Game::gameLoop() {
     int elapsedTimeMs = currentTimeMs - lastUpdateTime;
     update(std::min(elapsedTimeMs, MAX_FRAME_TIME));
     lastUpdateTime = currentTimeMs;
+
+    draw(graphics);
   }
 }
 
-void Game::draw(Graphics *graphics) {
+void Game::draw(Graphics &graphics) {
+  graphics.clear();
 
+  _player.draw(graphics, 100, 100);
+
+  graphics.flip();
 }
 
 void Game::update(float elapsedTime) {

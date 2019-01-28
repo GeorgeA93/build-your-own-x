@@ -1,7 +1,9 @@
 #ifndef _GAME_
 #define _GAME_
 
-struct Graphics;
+#include "sprite.h"
+
+class Graphics;
 
 class Game {
   public:
@@ -9,7 +11,9 @@ class Game {
     ~Game();
   private:
     void gameLoop();
-    void draw(Graphics *graphics);
+    void draw(Graphics &graphics);
     void update(float elapsedTime);
+
+    Sprite _player;
 };
 #endif
