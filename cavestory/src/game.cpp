@@ -10,12 +10,26 @@ namespace {
 }
 
 Game::Game() {
-  SDL_Init(SDL_INIT_EVERYTHING);
+  if(!init()) {
+    printf("Failed to initalize!\n");
+    return;
+  }
 
   gameLoop();
 }
 
 Game::~Game() {
+}
+
+bool Game::init() {
+  bool success = true;
+
+  if(SDL_Init(SDL_INIT_EVERYTHING) < 0) {
+    printf("SDL could not initalize! SDL Error: %s\n", SDL_GetError());
+    success = false;
+  }
+
+  return success;
 }
 
 void Game::gameLoop() {

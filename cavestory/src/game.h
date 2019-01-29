@@ -14,6 +14,7 @@ class Game {
     void gameLoop();
     void draw(Graphics &graphics);
     void update(float elapsedTime);
+    bool init();
 
     Player _player;
 
