@@ -2,6 +2,7 @@
 #define _GAME_
 
 #include "player.h"
+#include "level.h"
 
 class Graphics;
 
@@ -15,5 +16,7 @@ class Game {
     void update(float elapsedTime);
 
     Player _player;
+
+    Level _level;
 };
 #endif
