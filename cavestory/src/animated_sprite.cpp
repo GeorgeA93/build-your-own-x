@@ -80,12 +80,3 @@ void AnimatedSprite::draw(Graphics &graphics, int x, int y) {
   SDL_Rect sourceRect = _animations[_currentAnimation][_frameIndex];
   graphics.blitSurface(_spriteSheet, &sourceRect, &destRect);
 }
-
-void AnimatedSprite::animationDone(std::string currentAnimation) {
-
-}
-
-void AnimatedSprite::setupAnimations() {
-  addAnimation(3, 0, 0, "runLeft", 16, 16, Vector2(0, 0));
-  addAnimation(3, 0, 16, "runRight", 16, 16, Vector2(0, 0));
-}
