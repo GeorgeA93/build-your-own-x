@@ -7,11 +7,11 @@ AnimatedSprite::AnimatedSprite() {}
 AnimatedSprite::AnimatedSprite(Graphics &graphics, const std::string &filePath, int sourceX, int sourceY, int width, int height, 
     float posX, float posY, float timeToUpdate) :
   Sprite(graphics, filePath, sourceX, sourceY, width, height, posX, posY),
-  _frameIndex(0),
   _timeToUpdate(timeToUpdate),
-  _visible(true),
   _currentAnimationOnce(false),
-  _currentAnimation("")
+  _currentAnimation(""),
+  _frameIndex(0),
+  _visible(true)
 {}
 
 void AnimatedSprite::addAnimation(int frames, int x, int y, std::string name, int width, int height, Vector2 offset) {
@@ -22,7 +22,7 @@ void AnimatedSprite::addAnimation(int frames, int x, int y, std::string name, in
     rects.push_back(newRect);
   }
 
-  _animations.insert(std::pair<std::string, std::vector<SDL_Rect>>(name, rects));
+  _animations.insert(std::pair<std::string, std::vector<SDL_Rect> >(name, rects));
   _offsets.insert(std::pair<std::string, Vector2>(name, offset));
 }
 
